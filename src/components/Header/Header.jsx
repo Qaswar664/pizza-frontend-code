@@ -1,12 +1,14 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
 
 import './header.css';
 
 const Header = () => {
   const navigate = useNavigate()
-  
+ const dispatch = useDispatch()
+ const cartState= useSelector((state)=>state.cartReducer) 
   function login(){
     navigate("/")
   }
@@ -39,8 +41,8 @@ const Header = () => {
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link className="text-dark fw-bold" onClick={cart}>
-          Cart
+        <Nav.Link className="text-dark fw-bold" onClick={cart} >
+          Cart {cartState.cartItems.length}
         </Nav.Link>
       </Nav.Item>
     </Nav>

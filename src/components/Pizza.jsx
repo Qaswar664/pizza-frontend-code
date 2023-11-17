@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addToCart } from "../actions/cartAction";
 
 const Pizza = ({ pizza }) => {

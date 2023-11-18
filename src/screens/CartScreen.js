@@ -1,15 +1,14 @@
 import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import { useSelector ,useDispatch} from "react-redux";
-import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
-import { addToCart } from "../actions/cartAction";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { FaMinusCircle, FaPlusCircle, FaTrash } from "react-icons/fa";
+import { addToCart, deleteFromCart } from "../actions/cartAction";
 
 const CartScreen = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
-  console.log(cartItems,'cartitemssssssssssss');
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const subTotal=cartItems.reduce((x,item)=>x+item.price,0)
 
   return (
     <Container>
@@ -36,19 +35,46 @@ const CartScreen = () => {
                           <p>Variant: {item.variant}</p>
                           <p>
                             Quantity:&nbsp;
-                            <FaMinusCircle className="text-danger pr-3 cursor-pointer"
-                            onClick={()=>{dispatch(addToCart(item,item.quantity-1,item.variant))}}
-                            />
+                            <Button type="button" className=" btn btn-danger">
+                              <FaMinusCircle
+                                onClick={() => {
+                                  dispatch(
+                                    addToCart(
+                                      item,
+                                      item.quantity - 1,
+                                      item.price,
+                                      item.variant
+                                    )
+                                  );
+                                }}
+                              />
+                            </Button>
                             {item.quantity}
                             &nbsp;
-                            <FaPlusCircle className="text-success cursor-pointer"
-                            
-                            onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.variant))}}
-
-                            />
+                            <Button type="button" className=" btn btn-success">
+                              <FaPlusCircle
+                                onClick={() => {
+                                  dispatch(
+                                    addToCart(
+                                      item,
+                                      item.quantity + 1,
+                                      item.price,
+                                      item.variant
+                                    )
+                                  );
+                                }}
+                              />
+                            </Button>
                           </p>
 
-                          <p>Price: ${item.price.toFixed(2)}</p>
+                          <p>Price: RS{item.price.toFixed(2)}</p>
+                          <Button>
+                            <FaTrash
+                            onClick={()=>{
+                              dispatch(deleteFromCart(item))
+                            }}
+                            />
+                          </Button>
                         </Card.Text>
                       </Col>
                     </Row>
@@ -59,8 +85,13 @@ const CartScreen = () => {
           </Row>
         </Col>
         <Col md={5}>
+                    {/* Add payment information components here */}
+
           <h1>Payment Info</h1>
-          {/* Add payment information components here */}
+          <h5>Sub Total</h5>
+          <h6>RS {subTotal}/-</h6>
+          <Button>Checkout</Button>
+        
         </Col>
       </Row>
     </Container>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { useSelector, useDispatch } from "react-redux";
+import { registerUser } from '../actions/userAction';
 
 const Register = () => {
+  const despatch = useDispatch()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,11 +29,16 @@ const Register = () => {
       setPasswordMatchError(true);
       return;
     }
-
     // Reset the error state if passwords match
     setPasswordMatchError(false);
-
     // Continue with your registration logic, such as calling an API to register the user
+    despatch(registerUser(formData))
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
     console.log('Form submitted:', formData);
   };
 

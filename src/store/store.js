@@ -29,14 +29,19 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { getAllPizzaReducer } from '../reducers/pizaaReducer';
+import { getAllPizzaReducer,addPizzaReducer ,getPizzaByIdReducer} from '../reducers/pizaaReducer';
 import { cartReducer } from '../reducers/cartReducer';
-import { registerUserReducer } from '../reducers/userReducer';
+import { registerUserReducer,loginUserReducer } from '../reducers/userReducer';
+
+const currentUser= localStorage.getItem('currentUser')?JSON.parse(localStorage.getItem('currentUser')):null;
 
 const rootReducer = combineReducers({
   getAllPizzaReducer: getAllPizzaReducer,
   cartReducer: cartReducer,
-  registerUserReducer:registerUserReducer
+  registerUserReducer:registerUserReducer,
+  loginUserReducer:loginUserReducer,
+  addPizzaReducer:addPizzaReducer,
+  getPizzaByIdReducer:getPizzaByIdReducer
 });
 
 // Use the same property name here as in combineReducers
@@ -44,7 +49,10 @@ const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.ge
 
 const initialState = {
   cartReducer: {
-    cartItems: cartItems
+    cartItems: cartItems,
+  },
+  loginUserReducer:{
+    currentUser:currentUser,
   }
 };
 

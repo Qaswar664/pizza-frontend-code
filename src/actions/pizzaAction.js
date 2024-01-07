@@ -69,14 +69,19 @@ export const updatePizza = (updatedPizza) => async (dispatch) => {
 };
 
 
-export const deletePizza= async(pizzaId)=> {
+export const deletePizza = (pizzaId) => async (dispatch) => {
+  console.log('Deleting pizza with ID:', pizzaId);
+
   try {
-    const res = await axios.post(`${API_URL}/delete-pizza`,{pizzaId});
-    toast.success('Pizza deleted successfully')
-    console.log(res);
+    const res = await axios.post(`${API_URL}/delete-pizza/${pizzaId}`);
+    window.location.href='/admin/all-pizzas'
+    toast.success('Pizza deleted successfully');
+    console.log(res,'res');
   } catch (error) {
-    toast.error('Error while deleting pizza')
-    
+    toast.error('Error while deleting pizza');
   }
-} 
+};
+
+
+
 

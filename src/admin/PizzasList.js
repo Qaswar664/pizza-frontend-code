@@ -3,7 +3,7 @@ import { Table, Container, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Pizza from "../components/Pizza";
 import { Link } from "react-router-dom";
-import { getAllPizzas } from "../actions/pizzaAction";
+import { deletePizza, getAllPizzas } from "../actions/pizzaAction";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const PizzasList = () => {
@@ -63,7 +63,7 @@ const PizzasList = () => {
                   </Link>
 
                   <Button variant="outline-danger" size="sm">
-                    <FaTrash />
+                    <FaTrash onClick={()=>{dispatch(deletePizza(pizza._id))}} />
                   </Button>
                 </td>
               </tr>

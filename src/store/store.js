@@ -29,7 +29,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { getAllPizzaReducer,addPizzaReducer ,getPizzaByIdReducer} from '../reducers/pizaaReducer';
+import { getAllPizzaReducer,addPizzaReducer ,getPizzaByIdReducer,updatePizzaByIdReducer} from '../reducers/pizaaReducer';
 import { cartReducer } from '../reducers/cartReducer';
 import { registerUserReducer,loginUserReducer } from '../reducers/userReducer';
 
@@ -41,7 +41,8 @@ const rootReducer = combineReducers({
   registerUserReducer:registerUserReducer,
   loginUserReducer:loginUserReducer,
   addPizzaReducer:addPizzaReducer,
-  getPizzaByIdReducer:getPizzaByIdReducer
+  getPizzaByIdReducer:getPizzaByIdReducer,
+  updatePizzaByIdReducer:updatePizzaByIdReducer,
 });
 
 // Use the same property name here as in combineReducers

@@ -24,7 +24,7 @@ const Pizza = ({ pizza }) => {
   return (
     <>
       <Card style={{ width: "18rem" }} className="shadow m-5 p-1">
-        <Card.Img variant="top" src={pizza.image} onClick={handleShow} style={{ cursor: 'pointer' }} />
+        <Card.Img variant="top" src={pizza.image} onClick={handleShow} style={{ cursor: 'pointer',height:'250px' }} />
         <Card.Body>
           <Card.Title>{pizza.name}</Card.Title>
           <Card.Text>

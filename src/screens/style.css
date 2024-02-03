@@ -1,0 +1,28 @@
+.hero-img {
+    position: relative;
+  }
+  
+  .hero-img img {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    object-fit: cover; /* Ensure the image covers the entire container */
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff; /* Set the text color */
+  }
+  .top-selling{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  .top-selling p{
+    color: #939393;
+  }

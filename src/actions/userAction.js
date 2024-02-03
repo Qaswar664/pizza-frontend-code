@@ -37,7 +37,6 @@ export const logoutUser=()=>async dispatch=>{
 
 export const getAllUsers = () => async (dispatch) => {
     dispatch({ type: "GET_USERS_REQUEST" });
-    debugger
   
     try {
       const res = await axios.get(`${API_URL}/getallusers`); // Corrected URL
@@ -47,3 +46,19 @@ export const getAllUsers = () => async (dispatch) => {
       dispatch({ type: "GET_USERS_FAIL", payload: error });
     }
   };
+
+// delete pizza route 
+
+export const deleteUser = (userid) => async (dispatch) => {
+    try {
+      const res = await axios.delete(`${API_URL}/deleteuser/${userid}`);
+      window.location.reload();
+      console.log(res, 'res');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+

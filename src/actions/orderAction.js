@@ -48,9 +48,6 @@ export const getAllOrders =()=>async(dispatch,getState)=>{
         const response= await axios.get('api/orders/alluserorder')
         console.log(response,'user order response');
         dispatch({ type: "ALL_ORDER_SUCCESS",payload:response.data });
-
-
-
     } catch (error) {
         dispatch({ type: "ALL_ORDER_FAIL",payload:error });
 

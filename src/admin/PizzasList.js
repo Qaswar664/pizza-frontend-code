@@ -17,6 +17,7 @@ const PizzasList = () => {
 
   return (
     <Container>
+      <h1>All Pizza List</h1>
       {loading ? (
         <h1>Loading...</h1>
       ) : error ? (

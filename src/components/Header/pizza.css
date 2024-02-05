@@ -1,0 +1,51 @@
+/* Add these styles to your CSS file or style block in your component */
+
+.pizza-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .pizza-card:hover {
+    transform: scale(1.1); /* Increase the scale for zoom effect */
+  }
+  
+  .pizza-card:hover .card-img {
+    transform: scale(1.1); /* Increase the scale for zoom effect on image */
+  }
+  
+  .pizza-card .card-img {
+    transition: transform 0.3s;
+  }
+  
+  /* Add these styles for text movement on hover */
+  .pizza-card:hover .pizza-title {
+    transform: translateY(-10px); /* Move the title up */
+  }
+  
+  .pizza-card:hover .pizza-category {
+    transform: translateY(-10px); /* Move the category up */
+  }
+  
+  .variant-label,
+  .quantity-label {
+    margin-top: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .pizza-card:hover .variant-label,
+  .pizza-card:hover .quantity-label {
+    transform: translateY(-10px); /* Move the labels up */
+  }
+  
+  .price-btn,
+  .add-to-cart-btn {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .pizza-card:hover .price-btn,
+  .pizza-card:hover .add-to-cart-btn {
+    background-color: #28a745; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+  }
+  

@@ -44,7 +44,7 @@ const Register = () => {
 
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mt-5">
         <Col md={6}>
           <h2 className="text-center mt-4">Register</h2>
 

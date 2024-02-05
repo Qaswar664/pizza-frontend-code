@@ -3,6 +3,9 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../actions/cartAction";
+// import './pizza.css'
+// import "./pizza.css";
+import '../index.css'
 
 const Pizza = ({ pizza }) => {
   const [variant, setVariant] = useState("Small");
@@ -16,9 +19,14 @@ const Pizza = ({ pizza }) => {
   const selectedVariant = pizza.varients.find(
     (v) => v.toLowerCase() === variant.toLowerCase()
   );
+  // const selectedPrice = selectedVariant
+  //   ? pizza.prices[pizza.varients.indexOf(selectedVariant)]
+  //   : 0;
+
+
   const selectedPrice = selectedVariant
-    ? pizza.prices[pizza.varients.indexOf(selectedVariant)]
-    : 0;
+  ? pizza.prices[0][selectedVariant.toLowerCase()]
+  : 0;
 
   const addToCartHandler = () => {
     dispatch(addToCart(pizza, quantity, selectedPrice, variant));
@@ -26,14 +34,14 @@ const Pizza = ({ pizza }) => {
 
   return (
     <>
-      <Card className="pizza-card shadow mb-5 p-3" onClick={handleShow}>
-        <Card.Img
+      <Card className="pizza-card shadow mb-5 p-3" >
+        <Card.Img style={{maxHeight:"250px",minHeight:"250px",cursor:"pointer",transition: "transform 0.3s"}} onClick={handleShow}
           variant="top"
           src={pizza.image}
           className="card-img zoom-in"
         />
         <Card.Body>
-          <Card.Title className="pizza-title">{pizza.name}</Card.Title>
+          <Card.Title className="pizza-title pt-2">{pizza.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             {pizza.category}
           </Card.Subtitle>
@@ -61,7 +69,7 @@ const Pizza = ({ pizza }) => {
                   onChange={(e) => setQuantity(e.target.value)}
                   className="form-select"
                 >
-                  {[...Array(10).keys()].map((value, index) => (
+                  {[...Array(5).keys()].map((value, index) => (
                     <option key={index + 1} value={index + 1}>
                       {index + 1}
                     </option>

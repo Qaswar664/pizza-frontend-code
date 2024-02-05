@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.pizza-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 2s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.pizza-card:hover ,.pizza-title{
+  transform: scale(1.1); 
+}
+
+.pizza-card:hover .card-img {
+  transform: scale(1.1); 
+}
+
+.pizza-card .card-img {
+  transition: transform 0.7s;
+}
+
+.pizza-card:hover .pizza-title {
+  transform: translateY(-10px); 
+}
+
+.pizza-card:hover .pizza-category {
+  transform: translateY(-10px); 
+}
+
+.variant-label,
+.quantity-label {
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.pizza-card:hover .variant-label,
+.pizza-card:hover .quantity-label {
+  transform: translateY(-10px);
+}
+
+.price-btn,
+.add-to-cart-btn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pizza-card:hover .price-btn,
+.pizza-card:hover .add-to-cart-btn {
+  background-color: #28a745; 
+  color: #fff; 
 }

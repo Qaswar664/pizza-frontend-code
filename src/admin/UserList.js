@@ -36,7 +36,7 @@ const UserList = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <Table striped bordered hover>
+        <Table  bordered>
           <thead>
             <tr>
               <th>ID</th>

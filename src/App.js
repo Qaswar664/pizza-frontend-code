@@ -13,23 +13,20 @@ import PizzasList from "./admin/PizzasList";
 import AddNewPizza from "./admin/AddNewPizza";
 import OrderList from "./admin/OrderList";
 import EditPizza from "./admin/EditPizza";
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <Router>
       <Header/>
       <Routes>
         <Route path="/" element={<HomeScreen/>}/>
-        <Route path="/cart" element={<CartScreen/>}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/admin" element={<AdminScreen/>}/>
-        <Route path="/admin/all-users" element={<UserList/>}/>
-        <Route path="/admin/edit-pizza/:pizzaId" element={<EditPizza/>}/>
-        <Route path="/admin/all-pizzas" element={<PizzasList/>}/>
-        <Route path="/admin/add-new-pizza" element={<AddNewPizza/>}/>
-        <Route path="/admin/all-orders" element={<OrderList/>}/>
-
+        <Route path="/cart" element={<CartScreen />} />
+        <Route path="/admin/*" element={<AdminScreen />} />
+        <Route path="/admin/edit-pizza/:pizzaId" element={<EditPizza />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }

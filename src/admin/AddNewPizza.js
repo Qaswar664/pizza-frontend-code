@@ -62,7 +62,7 @@ const AddNewPizza = () => {
 
   return (
     <Container>
-      <h2 className="text-center mt-4">Add New Pizza</h2>
+      <h2>Add New Pizza</h2>
       <Form onSubmit={handleSubmit}>
         {error && <Alert variant="danger">{error}</Alert>}
 

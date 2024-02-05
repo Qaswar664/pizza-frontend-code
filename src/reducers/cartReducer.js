@@ -1,6 +1,4 @@
 export const cartReducer = (state = { cartItems: [] }, action) => {
-  console.log(state.cartItems, "reducerrrrrrrrrrrr");
-
   switch (action.type) {
     case "ADD_TO_CART":
       const { _id, variant } = action.payload;

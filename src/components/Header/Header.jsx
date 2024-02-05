@@ -135,12 +135,15 @@ const Header = () => {
   }
 
   function home() {
+    navigate("/admin");
+  }
+  function Dashboard() {
     navigate("/");
   }
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary shadow p-2"  fixed="top">
-      <Navbar.Brand onClick={home} style={{cursor:'pointer'}}>Dashboard</Navbar.Brand>
+      <Navbar.Brand onClick={Dashboard} style={{cursor:'pointer'}}>Dashboard</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
